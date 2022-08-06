@@ -1,7 +1,8 @@
 import React from 'react';
-import { OrgDiagram } from 'basicprimitivesreact';
-import { PageFitMode, Enabled } from 'basicprimitives';
+import { OrgDiagram} from 'basicprimitivesreact';
+import { PageFitMode} from 'basicprimitives';
 import './styles.css';
+
 
 
 const App=({items})=> {
@@ -17,6 +18,8 @@ const App=({items})=> {
   return (
     <div className="App">
       <OrgDiagram centerOnCursor={true} config={config} />
+
+  
     </div>
   );
 }

@@ -25,8 +25,11 @@ export const signup=async(req,res)=>{
     const {email,password,name}=req.body;
     //console.log(email);
      try {
+
+        const existingname=await user.findOne({name}); 
+        if(existingname) return res.status(401).json({message:'username already existing'});
         const existinguser=await user.findOne({email}); 
-        if(existinguser) return res.status(400).json({message:'user already existing'});
+        if(existinguser) return res.status(400).json({message:'email already existing'});
         const hashedpassword=await bcrypt.hash(password,12);
         const result=await user.create({email,password:hashedpassword,name:name});
         const token=jwt.sign({email:result.email,id:result._id},'test',{expiresIn:'1h'});

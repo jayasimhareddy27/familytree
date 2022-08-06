@@ -37,6 +37,19 @@ app.get("/", (req, res) => {
 
 const CONNECTION_URL ="mongodb+srv://root:root@cluster0.7ptfn.mongodb.net/SOCIAL-BLOG?retryWrites=true&w=majority"
 const PORT = process.env.PORT|| 5000;
+
+
+
+//server start if mongosse connect 
 mongoose.connect(CONNECTION_URL,( { useNewUrlParser: true, useUnifiedTopology: true }))
 .then(()=>app.listen(PORT,()=>console.log(`listening to port ${PORT}`)))
 .catch((err)=>console.log(err))
+
+
+/*
+()=>{
+print()
+}
+https://localhost:5000/api/auth
+https://localhost:5000/postdata
+ */

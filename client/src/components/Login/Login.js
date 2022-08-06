@@ -18,10 +18,7 @@ const Login = () => {
 
 
     const [displaysignin, setdisplaysignin] = useState(false)
-    const switchMode = () => {
-        setdisplaysignin((prevdisplaysignin)=>!prevdisplaysignin);
-    }
-    const initialState = { name: '', email: '', password: '', };
+    const initialState = { name: '', email: '', password: '' };
     const [SignupForm,setSignupForm]=useState(initialState);
     const handleChange=(e)=>{
         setSignupForm({...SignupForm,[e.target.name]:e.target.value});
@@ -34,7 +31,23 @@ const Login = () => {
             dispatch(SignUp(SignupForm,navigate));
         }
     }
-
+    
+    const switchMode = () => {
+        setdisplaysignin((prevdisplaysignin)=>!prevdisplaysignin);
+        setSignupForm(initialState);
+        const input1 = document.getElementsByName('email');
+        input1.forEach(input => {
+            input.value = '';
+        });
+        const input2 = document.getElementsByName('name');
+        input2.forEach(input => {
+            input.value = '';
+        });
+        const input3 = document.getElementsByName('password');
+        input3.forEach(input => {
+            input.value = '';
+        });
+    }
     return (
 
         <>

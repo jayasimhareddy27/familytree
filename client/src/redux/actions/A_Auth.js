@@ -38,11 +38,18 @@ export const SignUp=(SignupForm,navigate)=>async (dispatch)=>{
         navigate('/Home');
     } catch (error) {
         console.log(error.response.data);
+        if(error.response.data.message==='username already existing'){
+            console.log("username already existing");
+            alert("username already existing")
+            return;
+        }
+
         if(error.response.status===400){
             console.log("user already existing");
             alert("user already existing")
             return;
-        }else{
+        }
+        else{
             console.log("something went wrong");
             alert("something went wrong")
             return;
