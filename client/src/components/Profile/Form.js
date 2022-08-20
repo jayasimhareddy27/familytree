@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import { Navigate } from 'react-router-dom';
 import { PostData } from '../../redux/actions/A_Form';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import FileBase from 'react-file-base64';
-import './styles.css'
+import './assets/styles.css'
 
 
 const Form = ({user}) => {
@@ -20,7 +19,7 @@ const Form = ({user}) => {
   }
   const fetchpost=(e)=>{
     e.preventDefault();
-    if(form.id==='' || typeof(form.id)!=Number){
+    if(form.id===''){
       alert("Please type correct id");
       return
     }

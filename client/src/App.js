@@ -6,7 +6,7 @@ import Profile from './components/Profile/Profile';
 import Login from './components/Login/Login';
 import Nav from './components/Navbar/Nav';
 import { useState } from 'react';
-function App() {
+const App=()=> {
   const [user,setUser]=useState(JSON.parse(localStorage.getItem('profile')));
   return (
   

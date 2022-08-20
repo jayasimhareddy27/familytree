@@ -4,8 +4,7 @@ import Sample from './Sample';
 import Table from './Table';
 import Nologin from './Nologin'
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
-import './styles.css'
+import './assets/styles.css'
 
 const Profile = () => {
 
@@ -23,7 +22,7 @@ const Profile = () => {
       :
       <>
 
-        <Sample items={items} user={user} />
+      <Sample  />
       <div className='Parent'>
         <div className='child1'>
           <Form user={user} />

@@ -3,7 +3,6 @@ import './Login.css'
 import {SignIn,SignUp} from './../../redux/actions/A_Auth.js'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import Home from '../Home/Home.js'
 
 const Login = () => {
     

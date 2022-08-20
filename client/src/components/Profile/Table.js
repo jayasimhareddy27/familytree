@@ -2,7 +2,7 @@ import React from 'react'
 import { DelData } from '../../redux/actions/A_Form'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import './styles.css'
+import './assets/styles.css'
 const Table = ({items,user}) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
