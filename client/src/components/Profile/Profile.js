@@ -1,8 +1,8 @@
 import React, { useState,useEffect} from 'react'
 import Form from './Form';
-import Sample from './Sample';
+import Sample from './FamilyTree';
 import Table from './Table';
-import Nologin from './Nologin'
+import Nologin from '../Login/Nologin'
 import axios from 'axios';
 import './assets/styles.css'
 
@@ -22,7 +22,7 @@ const Profile = () => {
       :
       <>
 
-      <Sample  />
+      <Sample tree={items} />
       <div className='Parent'>
         <div className='child1'>
           <Form user={user} />

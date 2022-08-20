@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import './Home.css'
-import cat from './cat.jpg'
 import tree from './family-tree.png'
-import Nologin from '../Profile/Nologin'
+import Sample from './Sample';
 const Home = () => {
   var data=JSON.parse(localStorage.getItem('profile'));
   useEffect(() => {
@@ -22,11 +21,12 @@ const Home = () => {
             <img src={tree} alt="FamilyTree" style={{height:'350px'}}   />
           </div>
         </div>
-        <Nologin/>
-        <>
-        <p>type here for more content..</p>
+        
 
-        </>
+        <div className='center'> 
+        <h1>Sample</h1>
+          <Sample/>  
+        </div>        
     </>
   )
 }

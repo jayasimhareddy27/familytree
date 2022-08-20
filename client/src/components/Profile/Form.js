@@ -10,51 +10,28 @@ const Form = ({user}) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [form, setform] = useState({id:'',parent:'',title:'mr',description:'',image:''})
+  const [form, setform] = useState({id:'',parent:'',title:'',label:'',description:'',image:''})
   function onFormFieldChange(e){setform({...form,[e.target.name]:e.target.value}) }
-  function handleChange(e) {
-    var select = document.getElementById('title');
-    var value = select.options[select.selectedIndex].text;
-    setform({...form,title:e.target.value}) 
-  }
   const fetchpost=(e)=>{
     e.preventDefault();
-    if(form.id===''){
-      alert("Please type correct id");
+    if(form.id==='' || form.description===''){
+      alert("Please fill the form correctly");
       return
     }
-    if(form.parent===''){
-      alert("Please type the parent id");
-      return
-    }
-    if(form.description===''){
-      alert("Please type the desciption");
-      return
-    }
-    console.log(form);
-    const data={
-      form,
-      email:user.result.email
-    }
+    const data={ form, email:user.result.email}
     dispatch(PostData(data,navigate));
+    setform({id:'',parent:'',title:'',label:'',description:'',image:''}) 
   }
   return (
     <div >
-    <form className='fromcontainer'>
+    <form className='formcontainer'>
     <h1>Fill  the Form</h1>
-        title
-        <select name="title" id="title" onClick={handleChange}>
-            <option value="mr" selected>mr</option>
-            <option value="mrs">mrs</option>
-        </select> <br></br>
-        id:<input name='id' type="text" value={form.id} onChange={onFormFieldChange}/><br></br><br></br>
-        parent:<input name='parent' type="text" value={form.parent} onChange={onFormFieldChange}/><br></br><br></br>
-        description<input name='description' type="text" value={form.description} onChange={onFormFieldChange}/><br></br><br></br>
-        image<FileBase
-                  type="file"
-                  mutliple={false}
-                  onDone={({base64})=>setform({...form,image:base64})}
-              /><br></br><br></br>
+        id:<input name='id' type="text" value={form.id} onChange={onFormFieldChange} required/>     <br></br> 
+        parent:<input name='parent' type="text" value={form.parent} onChange={onFormFieldChange} required/>  <br></br> 
+        title:<input name='title' type="text" value={form.title} onChange={onFormFieldChange} required/>  <br></br>
+        label:<input name='label' type="text" value={form.label} onChange={onFormFieldChange} required />  <br></br>
+        description<input name='description' type="text" value={form.description} onChange={onFormFieldChange} required />   <br></br>
+        image<FileBase type="file" mutliple={false} onDone={({base64})=>setform({...form,image:base64})}  /><br></br>
         <button type="submit" value="submit" onClick={fetchpost}>fetch</button><br></br><br></br>
     </form>   
     </div>
