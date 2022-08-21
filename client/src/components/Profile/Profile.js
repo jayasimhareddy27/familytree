@@ -7,7 +7,7 @@ import axios from 'axios';
 import './assets/styles.css'
 
 const Profile = () => {
-
+  const [currentid, setcurrentid] = useState(-100001)
   const [user,setUser]=useState(JSON.parse(localStorage.getItem('profile')));
   const [items, setitems] = useState([])
   useEffect(()=>{
@@ -21,16 +21,17 @@ const Profile = () => {
         <Nologin/>
       :
       <>
-
-      <Sample tree={items} />
       <div className='Parent'>
         <div className='child1'>
-          <Form user={user} />
+          <Form user={user} currentid={currentid} setcurrentid={setcurrentid} />
         </div>
         <div className='child2'>
-          <Table items={items} user={user}/>
+          <Table items={items} user={user} currentid={currentid} setcurrentid={setcurrentid} />
         </div>
       </div>
+        <div className='child3'>
+          <Sample tree={items} />
+        </div>
       </>
       }
     </div>

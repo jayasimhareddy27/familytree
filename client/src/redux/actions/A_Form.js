@@ -1,4 +1,4 @@
-import { POSTDATA,DELDATA,GETDATA } from "../constants/actiontype"
+import { POSTDATA,DELDATA,GETDATA ,EditData} from "../constants/actiontype"
 import * as api from './../../api/index.js'
 
 export const PostData=(PostData,navigate)=>async (dispatch)=>{
@@ -32,6 +32,21 @@ export const DelData=(xid,navigate)=>async (dispatch)=>{
         }
         dispatch(action);
         //console.log("finished actions");
+    } catch (error) {
+        console.log(error.response.data);
+    }
+}
+export const GetIdData=(xid,navigate)=>async (dispatch)=>{
+    try {
+        
+        const id=xid.id;
+        const email=xid.user.email;
+        const {data}=await api.apieditid(id,email)
+        const action={
+            type:EditData,
+            data:data
+        }
+        dispatch(action);
     } catch (error) {
         console.log(error.response.data);
     }

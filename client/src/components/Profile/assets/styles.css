@@ -10,68 +10,73 @@
   padding: 8px;
 }
 
-
-
-
 #customers th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
+  background-color: #7fa7cc;
 }
 
-
-::-webkit-scrollbar {
-  width: 20px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
-  border-radius: 10px;
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: rgb(75, 70, 70); 
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #262424; 
-}
 
 .Parent {
   display: flex;
   flex-direction: row;
   padding-top: 30;
-  
-  
+  gap: 15px 150px;
 }
 
 .child1 {
-  width: 30%;
+  width: 20%;
   text-align: center;
 }
 
 .child2 {
   width: 70%;
 }
+.child3 {
+  padding-top: 60px;
+  display: grid;
+  place-items:  center;
+}
 
 .table {
   margin-left: auto;
   margin-right: auto;
-  height: 673px;
+  height: 590px;
   overflow: scroll;
-  background-color: white;
 }
 
 .formcontainer{
-  background: black;
-  background: -webkit-linear-gradient(to right, black, grey);
-  background: linear-gradient(to left, rgb(71, 69, 69), grey);
+  background: rgb(125, 129, 143);
   background-repeat: no-repeat;
   background-size: cover;
+}
 
+
+
+@media only screen and (max-width: 600px) {
+  .Parent {
+    display: grid;
+    max-width: 100%;
+
+  }
+  
+  .child1 {
+    width: fit-content;
+  }
+  
+  .child2 {
+    
+    width: fit-content;
+  }
+  .child3 {
+    width: fit-content;
+    padding-top: 60px;
+    display: grid;
+    place-items:  center;
+  }
+  .table {
+    overflow: scroll;
+  }
+  
 }

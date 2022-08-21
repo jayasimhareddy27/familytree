@@ -1,9 +1,9 @@
 import React from 'react'
-import { DelData } from '../../redux/actions/A_Form'
+import { DelData,GetIdData } from '../../redux/actions/A_Form'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import './assets/styles.css'
-const Table = ({items,user}) => {
+const Table = ({items,user,currentid,setcurrentid}) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   items.sort( (a,b)=> a.id-b.id );
@@ -14,6 +14,15 @@ const Table = ({items,user}) => {
     }
     dispatch(DelData(xid,navigate));
   }
+  const editnode=(id_)=>{
+    setcurrentid(id_);
+    const xid={
+      id:id_,
+      user:user.result,
+    }
+    dispatch(GetIdData(xid,navigate));
+    setcurrentid(-100001);
+  }
   
   return (
     <div className='table'> 
@@ -23,10 +32,10 @@ const Table = ({items,user}) => {
         <th>id</th>
         <th>parent</th>
         <th>title</th>
-        <th>label</th>
         <th>description</th>
         <th>image</th>
         <th>delete</th>
+        <th>edit</th>
     </thead>
       {items.map((val,key)=>{
         return(
@@ -34,9 +43,9 @@ const Table = ({items,user}) => {
           <td>{val.id}</td>
           <td>{val.parent}</td>
           <td>{val.title}</td>
-          <td>{val.label}</td>
           <td>{val.description}</td>
           <td><img src={val.image} alt={val.title} style={{ width: 100 }}></img></td>
+          <td><button onClick={()=>{editnode(val.id)}}>edit</button></td>
           <td><button onClick={()=>{delnode(val.id)}}>delete</button></td>
         </tr>
         )
