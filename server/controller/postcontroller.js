@@ -25,6 +25,17 @@ export const getd=async (req,res)=>{
             res.status(404).json({message:error.message});
     }
 }
+export const shared=async (req,res)=>{
+    const {email}=req.body;
+    console.log(email);
+    try {        
+        const userdata=await user.findOne({email:email});
+        await res.status(200).json(userdata.trees);  
+    }
+    catch (error) {
+        res.status(404).json({message:error.message});
+    }
+}
 
 export const getid=async (req,res)=>{
     const {id,email}=req.params;
