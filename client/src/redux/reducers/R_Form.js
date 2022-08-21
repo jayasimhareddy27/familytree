@@ -1,4 +1,4 @@
-import {POSTDATA,DELDATA,GETDATA,EditData} from './../constants/actiontype.js';
+import {POSTDATA,DELDATA,GETDATA,EditData,SHAREDATA} from './../constants/actiontype.js';
 
 const R_Form=(state=[],action)=>{
     switch (action.type) {
@@ -10,6 +10,8 @@ const R_Form=(state=[],action)=>{
             return state;
         case EditData:
             return {...action.data};
+        case SHAREDATA:
+            return [...action.data];
         default:
             return state;
     }

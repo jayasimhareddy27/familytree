@@ -1,4 +1,4 @@
-import { POSTDATA,DELDATA,GETDATA ,EditData} from "../constants/actiontype"
+import { POSTDATA,DELDATA,GETDATA ,EditData,SHAREDATA} from "../constants/actiontype"
 import * as api from './../../api/index.js'
 
 export const PostData=(PostData,navigate)=>async (dispatch)=>{
@@ -55,13 +55,26 @@ export const GetData=(user,navigate)=>async (dispatch)=>{
     try {
         const data=await api.apigetdata(user)
         console.log(data);
-        
         const action={
             type:GETDATA,
         }
         dispatch(action);
         //console.log("finished actions");
     } catch (error) {
+        console.log(error.response.data);
+    }
+}
+export const ShareData=(email,navigate)=>async (dispatch)=>{
+    try {
+        const {data}=await api.apisharedata(email)
+        const action={
+            type:SHAREDATA,
+            data:data
+        }
+        dispatch(action);
+        //console.log("finished actions");
+    } catch (error) {
+        alert("give correct email");
         console.log(error.response.data);
     }
 }

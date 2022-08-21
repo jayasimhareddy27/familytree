@@ -14,3 +14,4 @@ export const apipostdata=(PostData)=>API.post('/postdata',PostData);
 export const apideldata=(a,b)=>API.delete(`/postdata/${a}/${b}`);
 export const apieditid=(id,email)=>API.patch(`/postdata/byemail/${id}/${email}`);
 export const apigetdata=(user)=>API.post(`/postdata`,user);
+export const apisharedata=(email)=>API.post(`/postdata/email`,{email});
