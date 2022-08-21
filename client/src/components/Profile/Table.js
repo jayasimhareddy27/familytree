@@ -34,8 +34,8 @@ const Table = ({items,user,currentid,setcurrentid}) => {
         <th>title</th>
         <th>description</th>
         <th>image</th>
-        <th>delete</th>
         <th>edit</th>
+        <th>delete</th>
     </thead>
       {items.map((val,key)=>{
         return(
